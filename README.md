@@ -33,15 +33,6 @@ $ ./GBcon --bios gb_bios.gb --rom tetris.gb
 
 keys are up, down, left, right, a, s, enter, and right shift
 
-## Running tests
-
-Automated tests use rspec to launch GBcon, load a test rom (blargg's) and interact with the debugger to exit when the test ROM is complete. 
-Blargg's roms print their console output to the GameBoy serial port which GBcon dumps upon exit. 
-
-To run rspec tests, do:
-
-`rspec`
-
 ## Features
 
 * Passes *most of* blargg's cpu_instr test roms. Currently fails 02-interrupts.gb since the timer is not implemented.
@@ -54,6 +45,30 @@ To run rspec tests, do:
 * Sound
 * Memory Bank Controllers: MBC2, MBC6, MBC7, MM01, RTC support
 * Accurate intra cycle timing
+
+## Running tests
+
+Automated tests use rspec to launch GBcon, load a test rom (blargg's) and interact with the debugger to exit when the test ROM is complete. blargg's test roms can be found [here](https://github.com/retrio/gb-test-roms).
+Blargg's roms print their console output to the GameBoy serial port which GBcon dumps upon exit. 
+
+The tests require a few binaries are placed in the `test/resources` directory. like:
+
+```
+tests/resources/
+├── blarggs
+│   ├── cgb_sound.gb
+│   ├── cpu_instrs.gb
+│   ├── dmg_sound.gb
+│   ├── instr_timing.gb
+│   ├── interrupt_time.gb
+│   ├── mem_timing.gb
+│   └── oam_bug.gb
+└── gb_bios.bin
+```
+
+To run rspec tests, do:
+
+`rspec`
 
 ## Known Issues
 

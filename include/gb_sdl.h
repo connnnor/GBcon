@@ -17,7 +17,6 @@ struct display {
     SDL_Surface *surface;
     unsigned int frames;
     Uint32 pixels[LCD_Width * LCD_Height];
-//  unsigned char  gb_pixels[LCD_Width * LCD_Height];
 };
 
 struct sdl_joypad {

@@ -66,13 +66,13 @@ Cartridge::Cartridge(std::string rom_path) {
     case 0x03: // MBC1+RAM+BATTERY
       mbc = new MBC1(cart_ram, cart_rom);
       break;
-      //            case 0x05: // MBC2
-      //            case 0x06: // MBC2+BATTERY
-      //            case 0x08: // ROM+RAM
-      //            case 0x09: // ROM+RAM+BATTERY
-      //            case 0x0B: // MMM01
-      //            case 0x0C: // MMM01+RAM
-      //            case 0x0D: // MMM01+RAM+BATTERY
+//  case 0x05: // MBC2
+//  case 0x06: // MBC2+BATTERY
+//  case 0x08: // ROM+RAM
+//  case 0x09: // ROM+RAM+BATTERY
+//  case 0x0B: // MMM01
+//  case 0x0C: // MMM01+RAM
+//  case 0x0D: // MMM01+RAM+BATTERY
     case 0x0F: // MBC3+TIMER+BATTERY
     case 0x10: // MBC3+TIMER+RAM+BATTERY
     case 0x11: // MBC3
@@ -88,8 +88,8 @@ Cartridge::Cartridge(std::string rom_path) {
     case 0x1E: // MBC5+RUMBLE+RAM+BATTERY
       mbc = new MBC5(cart_ram, cart_rom);
       break;
-      //            case 0x20: // MBC6
-      //            case 0x22: // MBC7+SENSOR+RUMBLE+RAM+BATTERY
+//  case 0x20: // MBC6
+//  case 0x22: // MBC7+SENSOR+RUMBLE+RAM+BATTERY
     default:
       std::cerr << "GBcon: Unsupported cartridge type" << std::endl;
       loaded = false;

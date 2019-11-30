@@ -307,7 +307,6 @@ void LCD::draw_background(unsigned char line) {
   }
   
   unsigned short y = ((line + scy) % 256);
-//cout << "tilemap_row " << tilemap_row << endl;
   // render line for one tile
   for (int i = 0; i < LCD_Width/8; i++) {
     // lookup tilenumber in tilemap
@@ -315,7 +314,6 @@ void LCD::draw_background(unsigned char line) {
     unsigned short tilemap_offset = (y / 8) * 32 + x / 8;
 
     unsigned char tilenum = mem->read_byte(tilemap_base + tilemap_offset);
-//  cout << "tilemap lookup " << hex << (tilemap_base + tilemap_offset) << endl;
 
     // read 2-bytes of pixel data from tiledata table
     // (only reading 1/8 of the lines from the tile)
@@ -356,12 +354,12 @@ void LCD::render_scanline(unsigned char line) {
 bool LCD::step(unsigned int cycles) {
   bool quit_input = false;
   cycles_this_frame += cycles;
-  if (cycles_this_frame > 70224) { // 70224 GBCPUMAN
+  if (cycles_this_frame > 70224) {
     cycles_this_frame = 0;
   }
   // "a scanline normally takes 456 clocks"-TCAGBD
   unsigned int scanline = cycles_this_frame / 456; 
-  unsigned int cycles_this_line = cycles_this_frame % 456; // (vertical pos?)
+  unsigned int cycles_this_line = cycles_this_frame % 456;
 
   // update status register
   ly = scanline;
@@ -385,7 +383,7 @@ bool LCD::step(unsigned int cycles) {
       if (status.mode != prev_mode && ly < LCD_Height) {
         render_scanline(ly);
       }
-    } else { // cycles_thiis_line < 456
+    } else { // cycles_this_line < 456
       // Mode 0
       status.mode = HBLANK;
       if (status.mode0_enable) {
@@ -414,7 +412,6 @@ bool LCD::step(unsigned int cycles) {
     set_sdl_pixels(gb_pixels);
     sdl_set_frame();
     quit_input = sdl_update();
-//  cout << "vblank. ticks since prev = " << (ms_now - ms_last_vblank) << endl;
     ms_last_vblank = SDL_GetTicks();
   }
   prev_mode = status.mode;

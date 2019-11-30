@@ -74,17 +74,6 @@ void sdl_uninit(void) {
 }
 
 void sdl_set_frame(void) {
-// print FPS
-//if (frames == 0) {
-//  gettimeofday(&t1, NULL);
-//}
-
-//frames++;
-//if (frames % 128 == 0) {
-//  gettimeofday(&t2, NULL);
-//  printf("FPS: %i\n", frames / ((int)t2.tv_sec - (int)t1.tv_sec));
-//}
-
   SDL_UpdateTexture(display.frameBuffer, NULL, display.pixels,
                     LCD_Width * sizeof(uint32_t));
   SDL_RenderClear(display.renderer);

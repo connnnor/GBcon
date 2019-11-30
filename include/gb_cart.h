@@ -20,18 +20,15 @@ class Cartridge
     private:
         MBC *mbc;
 
-//      unsigned short num_rom_banks;
         unsigned short num_ram_banks;
 
 
         /* constants */
         const unsigned Max_Rom_Size     = 0x400000;
         const unsigned One_KB           = 1024;
-//      const unsigned Rom_Bank_Size    = (One_KB * 16);
         const unsigned Ram_Bank_Size    = (One_KB * 8);
 
         /* Cartidge header memory addresses */
         const unsigned short Mbc_type_addr = 0x0147;
-//      const unsigned short Rom_size_addr = 0x0148;
         const unsigned short Ram_size_addr = 0x0149;
 };

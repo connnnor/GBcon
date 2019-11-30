@@ -31,7 +31,7 @@ public:
 
   void set_tac(unsigned char value);
   unsigned char get_tac(void);
-  // excuted at the rate of the fastest timer (4 machine cycles)
+  // executed at the rate of the fastest timer (4 machine cycles)
   void increment(void);
   // checks cycles since last timer step. if > 4 cycles, run increment func
   void step(void);
