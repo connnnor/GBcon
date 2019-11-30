@@ -59,17 +59,6 @@ describe 'gameboy' do
         "the option '--rom' is required but missing"
       ])
     end
-
-    it 'prints error when --bios arg missing' do
-      argv = [
-        "bin/GBcon",
-        "--rom", "tests/resources/blarggs/cpu_instrs.gb",
-      ]
-      result = run_emu(argv)
-      expect(result).to match_array([
-        "the option '--bios' is required but missing"
-      ])
-    end
   end
 
   describe 'input files do not exit' do
@@ -82,18 +71,6 @@ describe 'gameboy' do
       result = run_emu(argv)
       expect(result).to match_array([
         "GBcon: Error reading rom file"
-      ])
-    end
-
-    it 'prints error when bios file does not exist' do
-      argv = [
-        "bin/GBcon",
-        "--bios", "NOT_A_FILE",
-        "--rom", "tests/resources/blarggs/cpu_instrs.gb",
-      ]
-      result = run_emu(argv)
-      expect(result).to match_array([
-        "GBcon: error reading bios file"
       ])
     end
   end
