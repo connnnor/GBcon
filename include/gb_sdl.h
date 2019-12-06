@@ -8,7 +8,7 @@ const unsigned int LCD_Width  = 160;
 const unsigned int LCD_Height = 144;
 
 // darkest to lightest
-const unsigned int Palette[4] = {0xff9bbc0f,0xff8bac0f,0xff306230,0xff0f380f};
+const unsigned int Palette[4] = {0xFFFFFF, 0xC0C0C0, 0x808080, 0x000000};
 
 struct display {
     SDL_Window *screen;
