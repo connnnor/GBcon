@@ -24,7 +24,7 @@ private:
     bool enabled;
   };
   struct Breakpoint {
-    unsigned short addr;
+//  unsigned short addr;
     bool enabled;
   };
 

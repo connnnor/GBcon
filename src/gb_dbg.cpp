@@ -36,7 +36,7 @@ void Debug::init(GB_Sys *gb_sys) {
   // add commands
   add_command("help", &Debug::execute_help_cmd, "prints help message");
   add_command("break", &Debug::execute_break_cmd, "sets breakpoint at address");
-  add_command("watch", &Debug::execute_watch_cmd, "sets memory watchpoint at address");
+//  add_command("watch", &Debug::execute_watch_cmd, "sets memory watchpoint at address");
   add_command("continue", &Debug::execute_continue_cmd, "continue emulator execution");
   add_command("step", &Debug::execute_step_cmd, "execute a single instruction");
   add_command("examine", &Debug::execute_examine_cmd, "display memory contents");
@@ -153,7 +153,7 @@ void Debug::execute_watch_cmd(std::vector<std::string> &argv) {
   if (watchpoints.count(addr)) {
     std::cout << "watchpoint exists\n";
   } else {
-    watchpoints.insert({addr, Watchpoint{.enabled = true}});
+    watchpoints.insert({addr, Watchpoint{.addr=addr, .prev_val=0x00, .enabled = true}});
     cout << "watchpoint set\n";
   }
 }

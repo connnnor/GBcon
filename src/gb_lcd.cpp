@@ -3,6 +3,8 @@
 #include "gb_memory.h"
 #include "gb_sdl.h"
 #include "SDL.h"
+#include <algorithm>
+#include <cassert>
 
 /* LCD register getters / setters
  */

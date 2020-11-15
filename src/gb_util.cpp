@@ -1,6 +1,7 @@
 #include "gb_util.h"
 #include <iostream>
 #include <sstream>
+#include <limits>
 
 namespace gb_util {
 std::vector<std::string> split(const std::string &s, char delim) {
